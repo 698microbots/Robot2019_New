@@ -28,8 +28,9 @@ public class OI {
 	
 	public OI()
 	{
-		rightTrig.whenPressed(new PickHatch());
-		leftTrig.whenPressed(new PlaceHatch());
+		//rightTrig.whenPressed(new PickupCargo());
+		leftTrig.whenPressed(new TriggerCargo());
+		rightTrig.whenPressed(new pickup());
 		//leftTrig.whenReleased(new CargoOff());
 		//leftButtonr.whenPressed(new MoveElevator(true));
 		//rightButtonr.whenPressed(new MoveElevator(false));

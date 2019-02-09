@@ -23,7 +23,7 @@ public class DriveSubsystem extends Subsystem {
 	private static final Encoder driveLeftEncoder = new Encoder(RobotMap.driveLeftEncoderChannelA, RobotMap.driveLeftEncoderChannelB, leftEncoderInverted);
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new JoystickDrive());
+    	//setDefaultCommand(new JoystickDrive());
     }
     /**
 	 * Set the speed of the two right motors

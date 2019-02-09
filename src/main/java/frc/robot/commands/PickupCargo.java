@@ -21,7 +21,8 @@ public class PickupCargo extends Command {
     public PickupCargo() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drive);
+		requires(Robot.drive);
+		requires(Robot.cargoIntake);
     	light_state.setNumber(1);
     	tx = Robot.limelight.getEntry("tx");
     	ty = Robot.limelight.getEntry("ty");
@@ -36,16 +37,14 @@ public class PickupCargo extends Command {
     	Timer.delay(.5);
     	x = tx.getDouble(0.0);
     	y = ty.getDouble(0.0);
-    	a = ta.getDouble(0.0);
-    	
+		a = ta.getDouble(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	x = tx.getDouble(0.0);
-    	a = ta.getDouble(0.0);
+		a = ta.getDouble(0.0);
     	SmartDashboard.putNumber("target", tv.getDouble(0.0));
-    	Robot.cargoIntake.shoot();
     	/*if(x > 0)
     	{
     		//x = Math.abs(x);
@@ -69,15 +68,16 @@ public class PickupCargo extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	a = ta.getDouble(0.0);
+		a = ta.getDouble(0.0);
+		return true;
     	/*if(a >= thresh || tv.getDouble(0.0) == 0.0)
     	{
     		Robot.drive.setLeftSpeed(0);
     		Robot.drive.setRightSpeed(0);
     		Robot.cargoIntake.off();
     		return true;
-    	}*/
-    	return false;
+    	}
+    	return false;*/
     }
 
     // Called once after isFinished returns true

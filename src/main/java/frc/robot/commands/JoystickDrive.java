@@ -28,7 +28,7 @@ public class JoystickDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
+    	/*if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
     	{
     		Robot.drive.setRightSpeed(-Robot.m_oi.right.getX());
         	Robot.drive.setLeftSpeed(Robot.m_oi.right.getX());
@@ -43,14 +43,14 @@ public class JoystickDrive extends Command {
 		double angle = Robot.gyro.getAngle();
     	//double angle = 0;
 		
-		Robot.drive.setRightSpeed((-Robot.m_oi.left.getY() + angle*kp));
-    	Robot.drive.setLeftSpeed((-Robot.m_oi.left.getY() - angle*kp));
+		Robot.drive.setRightSpeed((Robot.m_oi.left.getY() + angle*kp));
+    	Robot.drive.setLeftSpeed((Robot.m_oi.left.getY() - angle*kp));
 
     	SmartDashboard.putNumber("Left Speed", (Robot.m_oi.left.getY() + angle*kp));
     	SmartDashboard.putNumber("Right Speed", (Robot.m_oi.left.getY() - angle*kp));
     	SmartDashboard.putNumber("Angle", Robot.gyro.getAngle());
     	//Robot.drive.setLeftSpeed(Robot.m_oi.left.getY());
-    	//Robot.drive.setRightSpeed(SmartDashboard.getNumber("Right Speed", .25));
+    	//Robot.drive.setRightSpeed(SmartDashboard.getNumber("Right Speed", .25));*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
