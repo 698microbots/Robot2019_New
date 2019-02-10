@@ -2,34 +2,34 @@ package frc.robot.commands;
 import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class MoveElevator extends Command {
+    
+    double kp; 
+    double ki; 
+    double kd; 
+    double sp;
+    double currentposition;
 
-	boolean hitormiss;
-    public MoveElevator(boolean hitormiss) {
-    	requires(Robot.elevator);
-    	this.hitormiss = hitormiss;
+    public MoveElevator(double sp) {
+        requires(Robot.elevator);
+        this.sp = sp;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() 
     {
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-    	if(hitormiss)
-    	{
-    		Robot.elevator.up();
-    	}
-    	else
-    	{
-    		Robot.elevator.down();
-    	}
+        Robot.elevator.PID(sp);
     }
 
     // Make this return true when this Command no longer needs to run execute()
