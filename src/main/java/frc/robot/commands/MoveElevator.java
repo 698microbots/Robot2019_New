@@ -9,11 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class MoveElevator extends Command {
     
-    double kp; 
-    double ki; 
-    double kd; 
     double sp;
-    double currentposition;
 
     public MoveElevator(double sp) {
         requires(Robot.elevator);
