@@ -18,8 +18,8 @@ public class ElevatorSubsystem extends Subsystem
 {
   
   public static CANSparkMax spark = new CANSparkMax(3,  CANSparkMaxLowLevel.MotorType.kBrushless);
-  public static CANEncoder en = new CANEncoder(spark);
-  public static CANPIDController pid = new CANPIDController(spark); 
+  public static CANPIDController pid = spark.getPIDController();
+  public static CANEncoder en = spark.getEncoder();
 
   @Override
   public void initDefaultCommand() {

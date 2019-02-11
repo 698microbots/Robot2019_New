@@ -23,8 +23,9 @@ public class OI {
 	public Button rightTrig = new JoystickButton(right, 1);
 	public Button leftButtonl = new JoystickButton(left, 4); //intake cargo
 	public Button rightButtonl = new JoystickButton(left, 5); //shoot cargo
-	public Button leftButtonr = new JoystickButton(right, 4); //up elevator
-	public Button rightButtonr = new JoystickButton(right, 5); //down elevator
+	public Button lowestport = new JoystickButton(right, 4); //lowest port
+	public Button middleport = new JoystickButton(right, 5); //middle port
+	public Button highestport = new JoystickButton(right, 6); //highest port
 	
 	public OI()
 	{
@@ -32,7 +33,8 @@ public class OI {
 		leftTrig.whenPressed(new TriggerCargo());
 		rightTrig.whenPressed(new pickup());
 		//leftTrig.whenReleased(new CargoOff());
-		//leftButtonr.whenPressed(new MoveElevator(true));
-		//rightButtonr.whenPressed(new MoveElevator(false));
+		lowestport.whenPressed(new MoveElevator(100)); //change for rotations
+		middleport.whenPressed(new MoveElevator(100)); //change for rotations
+		highestport.whenPressed(new MoveElevator(100)); //change for rotations
 	}
 }
