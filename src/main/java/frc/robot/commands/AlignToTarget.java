@@ -67,7 +67,9 @@ public class AlignToTarget extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	a = ta.getDouble(0.0);
+		a = ta.getDouble(0.0);
+		if(!Robot.m_oi.driverButtonLeftBumper.get())
+			return true;
     	if(a >= thresh)
     	{
     		Robot.drive.setLeftSpeed(0);

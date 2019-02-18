@@ -28,7 +28,7 @@ public class JoystickDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	/*if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
+    	if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
     	{
     		Robot.drive.setRightSpeed(-Robot.m_oi.right.getX());
         	Robot.drive.setLeftSpeed(Robot.m_oi.right.getX());

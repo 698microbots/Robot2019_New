@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.JoystickDrive;
-
+import frc.robot.commands.XboxDrive;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -23,7 +23,7 @@ public class DriveSubsystemSpark extends Subsystem {
 	private static final Encoder driveLeftEncoder = new Encoder(RobotMap.driveLeftEncoderChannelA, RobotMap.driveLeftEncoderChannelB, leftEncoderInverted);
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new JoystickDrive());
+    	setDefaultCommand(new XboxDrive());
     }
     /**
 	 * Set the speed of the two right motors

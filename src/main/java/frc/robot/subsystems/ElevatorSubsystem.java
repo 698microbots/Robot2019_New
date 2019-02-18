@@ -29,9 +29,11 @@ public class ElevatorSubsystem extends Subsystem
 
   public void PID(double sp)
   {
-    pid.setP(0.0);
-    pid.setI(0.0);
-    pid.setD(0.0);
+    pid.setP(0.1);
+    pid.setI(1e-4);
+    pid.setD(1);
+    pid.setIZone(0);
+    pid.setFF(0);
     pid.setOutputRange(-1, 1);
     pid.setReference(sp, ControlType.kPosition);
   }

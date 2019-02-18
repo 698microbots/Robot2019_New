@@ -25,7 +25,7 @@ public class TriggerCargo extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(!Robot.m_oi.leftTrig.get())
+    	if(!Robot.m_oi.driverButtonB.get())
     	{
     		return true;
     	}
