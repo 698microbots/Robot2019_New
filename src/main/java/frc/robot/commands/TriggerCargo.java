@@ -19,13 +19,13 @@ public class TriggerCargo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        SmartDashboard.putNumber("Position", Robot.cargoIntake.getPosition());
-        SmartDashboard.putNumber("Velocity", Robot.cargoIntake.getVelocity());
+        //SmartDashboard.putNumber("Position", Robot.cargoIntake.getPosition());
+        //SmartDashboard.putNumber("Velocity", Robot.cargoIntake.getVelocity());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(!Robot.m_oi.leftTrig.get())
+    	if(!Robot.m_oi.driverButtonLeftTrigger.get())
     	{
     		return true;
     	}

@@ -30,11 +30,12 @@ public class MoveElevator extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(!Robot.m_oi.lowestport.get() || !Robot.m_oi.middleport.get() || !Robot.m_oi.highestport.get())
+       // if(!Robot.m_oi.lowestport.get() || !Robot.m_oi.middleport.get() || !Robot.m_oi.highestport.get())
     	{
-    		return true;
+    		//return true;
     	}
-    	else return false;
+        //else return false;
+        return false;
     }
 
     // Called once after isFinished returns true

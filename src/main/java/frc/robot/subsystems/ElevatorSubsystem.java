@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ElevatorSubsystem extends Subsystem 
 {
   
-  public static CANSparkMax spark = new CANSparkMax(3,  CANSparkMaxLowLevel.MotorType.kBrushless);
+ public static CANSparkMax spark = new CANSparkMax(3,  CANSparkMaxLowLevel.MotorType.kBrushless);
   public static CANPIDController pid = spark.getPIDController();
   public static CANEncoder en = spark.getEncoder();
 
@@ -36,7 +36,7 @@ public class ElevatorSubsystem extends Subsystem
     pid.setReference(sp, ControlType.kPosition);
   }
 
-  public double getPosition()
+ public double getPosition()
   {
     return en.getPosition();
   }

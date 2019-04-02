@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class CargoIntakeSubsystem extends Subsystem {
 
     //Spark cargoMotor = new Spark(RobotMap.cargoIntakeMotor);
-    public static CANSparkMax cargoMotor = new CANSparkMax(0,  CANSparkMaxLowLevel.MotorType.kBrushless);
+   public static CANSparkMax cargoMotor = new CANSparkMax(0,  CANSparkMaxLowLevel.MotorType.kBrushless);
 	public static CANEncoder en = new CANEncoder(cargoMotor);
 
     public void initDefaultCommand() {
@@ -39,7 +39,7 @@ public class CargoIntakeSubsystem extends Subsystem {
     	cargoMotor.set(0.0);
     }
 
-    public double getPosition()
+   /* public double getPosition()
     {
         return en.getPosition();
     }
@@ -47,6 +47,6 @@ public class CargoIntakeSubsystem extends Subsystem {
     public double getVelocity()
     {
         return en.getVelocity();
-    }
+    }*/
 }
 

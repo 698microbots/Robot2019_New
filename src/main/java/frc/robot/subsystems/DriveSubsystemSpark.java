@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveSubsystemSpark extends Subsystem {
 
-	private static final Spark driveRightRearMotor = new Spark(RobotMap.driveRightRearMotor);
-	private static final Spark driveRightFrontMotor = new Spark(RobotMap.driveRightFrontMotor);
-	private static final Spark driveLeftRearMotor = new Spark(RobotMap.driveLeftRearMotor);
-	private static final Spark driveLeftFrontMotor = new Spark(RobotMap.driveLeftFrontMotor);
+	private static final Spark driveRightRearMotorspark = new Spark(RobotMap.driveRightRearMotorspark);
+	private static final Spark driveRightFrontMotorspark = new Spark(RobotMap.driveRightFrontMotorspark);
+	private static final Spark driveLeftRearMotorspark = new Spark(RobotMap.driveLeftRearMotorspark);
+	private static final Spark driveLeftFrontMotorspark = new Spark(RobotMap.driveLeftFrontMotorspark);
 	
 	private final static boolean rightEncoderInverted = false;
 	private final static boolean leftEncoderInverted = false;
@@ -33,8 +33,8 @@ public class DriveSubsystemSpark extends Subsystem {
 		speed = -speed;
 		if(speed<-1) speed =-1;
 		if(speed>1) speed=1;
-		driveRightRearMotor.set(speed);
-		driveRightFrontMotor.set(speed);
+		driveRightRearMotorspark.set(speed);
+		driveRightFrontMotorspark.set(speed);
 	}
 	
 	/**
@@ -44,18 +44,18 @@ public class DriveSubsystemSpark extends Subsystem {
 	public void setLeftSpeed(double speed) {
 		if(speed<-1) speed =-1;
 		if(speed>1) speed=1;
-		driveLeftRearMotor.set(speed);
-		driveLeftFrontMotor.set(speed);
+		driveLeftRearMotorspark.set(speed);
+		driveLeftFrontMotorspark.set(speed);
 	}
 	
 	public double getRightSpeed()
 	{
-		return driveRightFrontMotor.getSpeed();
+		return driveRightFrontMotorspark.getSpeed();
 	}
 	
 	public double getLeftSpeed()
 	{
-		return driveLeftFrontMotor.getSpeed();
+		return driveLeftFrontMotorspark.getSpeed();
 	}
 }
 
