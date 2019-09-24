@@ -47,10 +47,14 @@ public class JoystickDrive extends Command {
 		Robot.drive.setRightSpeed((leftStick - rightStick));
 		
 
+<<<<<<< HEAD
 	
 
 	
 		/*if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
+=======
+    	if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
+>>>>>>> c84427eecf3fa3f78f968cea888e6cb66f21c448
     	{
     		Robot.drive.setRightSpeed(-Robot.m_oi.right.getX());
         	Robot.drive.setLeftSpeed(Robot.m_oi.right.getX());

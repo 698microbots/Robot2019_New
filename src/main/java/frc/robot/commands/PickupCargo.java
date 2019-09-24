@@ -33,7 +33,7 @@ public class PickupCargo extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	//light_state.setNumber(3);
-    	//Robot.cargoIntake.shoot();
+    	Robot.cargoIntake.shoot();
     	Timer.delay(.5);
     	x = tx.getDouble(0.0);
     	y = ty.getDouble(0.0);
@@ -45,7 +45,7 @@ public class PickupCargo extends Command {
     	x = tx.getDouble(0.0);
 		a = ta.getDouble(0.0);
     	SmartDashboard.putNumber("target", tv.getDouble(0.0));
-    	/*if(x > 0)
+    	if(x > 0)
     	{
     		//x = Math.abs(x);
     		Robot.drive.setRightSpeed(Math.max(((sp - x*kp)<sp_max?(sp - x*kp):sp_max)/(a*.1),0));
@@ -63,21 +63,21 @@ public class PickupCargo extends Command {
         	SmartDashboard.putNumber("left speed",Math.max(((sp - x*kp)<sp_max?(sp - x*kp):sp_max)/(a*.1),0));
     	}
     	SmartDashboard.putNumber("ta",a);
-    	*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 		a = ta.getDouble(0.0);
-		return true;
-    	/*if(a >= thresh || tv.getDouble(0.0) == 0.0)
+		if(!Robot.m_oi.driverButtonRightBumper.get())
+			return true;
+    	if(a >= thresh || tv.getDouble(0.0) == 0.0)
     	{
     		Robot.drive.setLeftSpeed(0);
     		Robot.drive.setRightSpeed(0);
     		Robot.cargoIntake.off();
     		return true;
     	}
-    	return false;*/
+    	return false;
     }
 
     // Called once after isFinished returns true
