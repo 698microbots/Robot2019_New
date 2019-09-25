@@ -2,9 +2,10 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.JoystickDrive;
-import frc.robot.commands.XboxDrive;
+
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,20 +13,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveSubsystemSpark extends Subsystem {
 
-	private static final Spark driveRightRearMotorspark = new Spark(RobotMap.driveRightRearMotorspark);
-	private static final Spark driveRightFrontMotorspark = new Spark(RobotMap.driveRightFrontMotorspark);
-	private static final Spark driveLeftRearMotorspark = new Spark(RobotMap.driveLeftRearMotorspark);
-	private static final Spark driveLeftFrontMotorspark = new Spark(RobotMap.driveLeftFrontMotorspark);
+	private static final CANSparkMax driveRightRearMotorspark = new CANSparkMax(RobotMap.driveRightRearMotorspark ,  CANSparkMaxLowLevel.MotorType.kBrushless);
+	private static final CANSparkMax driveRightFrontMotorspark = new CANSparkMax(RobotMap.driveRightFrontMotorspark ,  CANSparkMaxLowLevel.MotorType.kBrushless);
+	private static final CANSparkMax driveLeftRearMotorspark = new CANSparkMax(RobotMap.driveLeftRearMotorspark ,  CANSparkMaxLowLevel.MotorType.kBrushless);
+	private static final CANSparkMax driveLeftFrontMotorspark = new CANSparkMax(RobotMap.driveLeftFrontMotorspark ,  CANSparkMaxLowLevel.MotorType.kBrushless);
 	
-	private final static boolean rightEncoderInverted = false;
-	private final static boolean leftEncoderInverted = false;
-	private static final Encoder driveRightEncoder = new Encoder(RobotMap.driveRightEncoderChannelA, RobotMap.driveRightEncoderChannelB, rightEncoderInverted);
-	private static final Encoder driveLeftEncoder = new Encoder(RobotMap.driveLeftEncoderChannelA, RobotMap.driveLeftEncoderChannelB, leftEncoderInverted);
+	//private final static boolean rightEncoderInverted = false;
+	//private final static boolean leftEncoderInverted = false;
+	//private static final Encoder driveRightEncoder = new Encoder(RobotMap.driveRightEncoderChannelA, RobotMap.driveRightEncoderChannelB, rightEncoderInverted);
+	//private static final Encoder driveLeftEncoder = new Encoder(RobotMap.driveLeftEncoderChannelA, RobotMap.driveLeftEncoderChannelB, leftEncoderInverted);
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new XboxDrive());
+    	setDefaultCommand(new JoystickDrive());
     }
-    /**
+    /**s
 	 * Set the speed of the two right motors
 	 * @param speed between -1 and 1
 	 */
@@ -48,6 +49,7 @@ public class DriveSubsystemSpark extends Subsystem {
 		driveLeftFrontMotorspark.set(speed);
 	}
 	
+	/*
 	public double getRightSpeed()
 	{
 		return driveRightFrontMotorspark.getSpeed();
@@ -57,5 +59,6 @@ public class DriveSubsystemSpark extends Subsystem {
 	{
 		return driveLeftFrontMotorspark.getSpeed();
 	}
+	*/
 }
 

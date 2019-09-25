@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class PickupCargo extends Command {
+public class pickup extends Command {
 
 
 	NetworkTableEntry tx,ty,ta,tv;
@@ -18,7 +18,7 @@ public class PickupCargo extends Command {
 	double sp_max = .5;
 	double sp = 0.25;
 	NetworkTableEntry light_state = Robot.limelight.getEntry("pipeline");
-    public PickupCargo() {
+    public pickup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		requires(Robot.drive);

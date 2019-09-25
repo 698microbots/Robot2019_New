@@ -30,14 +30,14 @@ public class JoystickDrive extends Command {
 	double rightStick;
 	protected void execute() {
 		
-		leftStick = -1* Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_L_YAXIS);;
-		rightStick = Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_R_XAXIS);;
+		leftStick = -1* Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_L_YAXIS);
+		rightStick = Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_R_XAXIS);
 
-		if(Math.abs(leftStick) < .05)
+		if(Math.abs(leftStick) < .04)
 		{
 			leftStick = 0;
 		}
-		if(Math.abs(rightStick) < .05)
+		if(Math.abs(rightStick) < .04)
 		{
 			rightStick = 0;
 		}
@@ -47,14 +47,10 @@ public class JoystickDrive extends Command {
 		Robot.drive.setRightSpeed((leftStick - rightStick));
 		
 
-<<<<<<< HEAD
 	
 
 	
 		/*if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
-=======
-    	if(Math.abs(Robot.m_oi.right.getX()) > max_thresh)
->>>>>>> c84427eecf3fa3f78f968cea888e6cb66f21c448
     	{
     		Robot.drive.setRightSpeed(-Robot.m_oi.right.getX());
         	Robot.drive.setLeftSpeed(Robot.m_oi.right.getX());
