@@ -33,11 +33,11 @@ public class JoystickDrive extends Command {
 		leftStick = -1* Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_L_YAXIS);
 		rightStick = Robot.m_oi.xbox0.getRawAxis(Robot.m_oi.XBOX_R_XAXIS);
 
-		if(Math.abs(leftStick) < .04)
+		if(Math.abs(leftStick) < .06)
 		{
 			leftStick = 0;
 		}
-		if(Math.abs(rightStick) < .04)
+		if(Math.abs(rightStick) < .06)
 		{
 			rightStick = 0;
 		}

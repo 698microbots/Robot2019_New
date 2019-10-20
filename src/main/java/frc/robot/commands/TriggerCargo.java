@@ -19,11 +19,9 @@ public class TriggerCargo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.m_oi.driverButtonY.get() == true){
+        
             Robot.cargoIntake.shoot();
-        } else{
-            Robot.cargoIntake.off();
-        }
+        
         
         //SmartDashboard.putNumber("Position", Robot.cargoIntake.getPosition());
         //SmartDashboard.putNumber("Velocity", Robot.cargoIntake.getVelocity());
@@ -36,7 +34,7 @@ public class TriggerCargo extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-   // 	Robot.cargoIntake.off();
+    	Robot.cargoIntake.off();
     }
 
     // Called when another command which requires one or more of the same

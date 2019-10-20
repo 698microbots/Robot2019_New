@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
-import edu.wpi.first.wpilibj.GenericHID;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -32,7 +32,7 @@ public class OI {
 	public Button driverButtonLeftBumper = new JoystickButton(xbox0, 5);
 	public Button driverButtonRightBumper = new JoystickButton(xbox0, 6);
 	public Button driverButtonLeftTrigger = new JoystickButton(xbox0, 7);
-	public final Button cargo;
+	
 	
 
 
@@ -66,8 +66,7 @@ public class OI {
 		driverButtonLeftBumper.whenPressed(new PlaceHatch());
 		driverButtonRightBumper.whenPressed(new PickHatch());
 
-		cargo = buttonFromaxis(xbox0 , 3);
-		cargo.whileHeld(new pickup());
+		
 		//driverButtonRightTrigger.whenPressed(new TriggerCargo());
 		//driverButtonA.whenPressed(new PickupCargo());
 		//driverButtonB.whenPressed(new AlignToTarget());
@@ -89,13 +88,7 @@ public class OI {
 		Elevdwn.whenPressed(new MoveElevator(100)); //change for rotations
 		*/
 	}
-	private Button buttonFromaxis(GenericHID controller, int axis){
-		return new Button(){
-			@Override
-			public boolean get(){
-				return Math.abs(controller.getRawAxis(axis)) > 0.05;
-			}
-		};
+	
 	}
 
-}
+

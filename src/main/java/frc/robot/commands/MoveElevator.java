@@ -1,31 +1,54 @@
 package frc.robot.commands;
 import frc.robot.Robot;
 
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *
  */
 public class MoveElevator extends Command {
-    
-    double sp;
 
-    public MoveElevator(double sp) {
+    private double elevator = Robot.m_oi.xbox1.getRawAxis(Robot.m_oi.XBOX_R_YAXIS);
+    
+    //public MoveElevator(double sp, boolean direction) 
+    public MoveElevator(){
         requires(Robot.elevator);
-        this.sp = sp;
+        //this.sp = sp;
+        //this.direction = direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() 
     {
-        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-        Robot.elevator.PID(sp);
+        //Robot.elevator.PID(sp);
+        /*if(direction)
+        {
+            Robot.elevator.upElevator();
+        }
+        else
+            Robot.elevator.downElevator();
+            */
+           if(Math.abs(elevator) < .2)
+            {
+                elevator = 0;
+            }
+            if(elevator > 0)
+            {
+                elevator = elevator;
+            }
+            if(elevator < 0)
+            {
+                elevator = 1.5*elevator;
+            }
+           Robot.elevator.setElevator(elevator);
     }
 
     // Make this return true when this Command no longer needs to run execute()

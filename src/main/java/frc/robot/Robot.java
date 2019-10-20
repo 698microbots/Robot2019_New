@@ -17,9 +17,12 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import frc.robot.commands.ExampleCommand;
+//import frc.robot.commands.MoveElevator;
 import frc.robot.subsystems.CargoIntakeSubsystem;
-import frc.robot.subsystems.DriveSubsystem;
+//import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.DriveSubsystemSpark;
 //import frc.robot.subsystems.DriveSubsystemSpark;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.HatchIntakeSubsystem;
@@ -32,25 +35,21 @@ import frc.robot.subsystems.HatchIntakeSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
+  
   public static OI m_oi;
 
-  Command m_autonomousCommand;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  //Command m_autonomousCommand;
+  //SendableChooser<Command> m_chooser = new SendableChooser<>();
 	public static NetworkTable limelight = NetworkTableInstance.getDefault().getTable("limelight");
 	public static Compressor c = new Compressor(RobotMap.PCMNodeID);
-	public static DriveSubsystem drive = new DriveSubsystem();
-	public static CargoIntakeSubsystem cargoIntake = new CargoIntakeSubsystem();
-<<<<<<< HEAD
+  public static DriveSubsystemSpark drive = new DriveSubsystemSpark();
+  public static ElevatorSubsystem elevator = new ElevatorSubsystem();
+  public static CargoIntakeSubsystem cargoIntake = new CargoIntakeSubsystem();
 	//public static AnalogGyro gyro = new AnalogGyro(0);
 	//public static final ADIS16448_IMU imu = new ADIS16448_IMU();
-	//public static CANSparkMax spark = new CANSparkMax(3,  CANSparkMaxLowLevel.MotorType.kBrushless);
-	//public static CANEncoder en = new CANEncoder(spark);
-=======
-	public static AnalogGyro gyro = new AnalogGyro(0);
-	public static final ADIS16448_IMU imu = new ADIS16448_IMU();
->>>>>>> c84427eecf3fa3f78f968cea888e6cb66f21c448
-	public static ElevatorSubsystem elevator = new ElevatorSubsystem();
-	 public static HatchIntakeSubsystem hatchIntake = new HatchIntakeSubsystem();
+
+	//public static ElevatorSubsystem elevator = new ElevatorSubsystem();
+	public static HatchIntakeSubsystem hatchIntake = new HatchIntakeSubsystem();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -59,8 +58,9 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
+    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+    //SmartDashboard.putData("Auto mode", m_chooser);
   }
 
   /**
@@ -102,7 +102,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
+    //m_autonomousCommand = m_chooser.getSelected();
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -112,9 +112,9 @@ public class Robot extends TimedRobot {
      */
 
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
-    }
+    //if (m_autonomousCommand != null) {
+    //  m_autonomousCommand.start();
+    //}
   }
 
   /**
@@ -131,9 +131,12 @@ public class Robot extends TimedRobot {
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
+    /*
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    */
+    c.setClosedLoopControl(false);
   }
 
   /**
@@ -156,6 +159,8 @@ public class Robot extends TimedRobot {
    // SmartDashboard.putNumber("Pressure: ", imu.getBarometricPressure());
     //SmartDashboard.putNumber("Temperature: ", imu.getTemperature());
     Scheduler.getInstance().run();
+    c.setClosedLoopControl(false);
+    elevator.setElevator(m_oi.xbox1.getRawAxis(m_oi.XBOX_R_YAXIS));
   }
  
   /**
@@ -163,6 +168,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
-   // c.setClosedLoopControl(true);
+    //c.setClosedLoopControl(false);
   }
 }

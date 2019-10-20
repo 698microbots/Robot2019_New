@@ -17,16 +17,20 @@ import edu.wpi.first.wpilibj.SPI.Port;
  */
 public class RobotMap {
 
-	public static int 	driveRightRearMotor		= 1;
-	public static int 	driveLeftRearMotor 		= 2;
-	public static int 	driveRightFrontMotor	= 3;
-	public static int 	driveLeftFrontMotor 	= 4;
-	public static int 	elevatorMotor			= 5;
-	public static int 	cargoIntakeMotor		= 6;
-	public static int 	driveRightRearMotorspark= 7;
-	public static int 	driveLeftRearMotorspark  = 8;
-	public static int 	driveRightFrontMotorspark= 9;
-	public static int 	driveLeftFrontMotorspark = 0;
+	//public static int 	driveRightRearMotor		= 1;
+	//public static int 	driveLeftRearMotor 		= 2;
+	//public static int 	driveRightFrontMotor	= 3;
+	//public static int 	driveLeftFrontMotor 	= 4;
+
+
+	public static int 	elevatorMotor			= 3;
+	public static int 	cargoIntakeMotor		= 7;
+
+	public static int 	driveRightRearMotorspark= 1;
+	public static int 	driveLeftRearMotorspark  = 4;
+	public static int 	driveRightFrontMotorspark= 5;
+	public static int 	driveLeftFrontMotorspark = 2;
+
 	public static int 	PCMNodeID				= 2;
 	public static Port	gyroPort;
 	
